@@ -1,0 +1,55 @@
+name: Render four website demos
+concurrency:
+  group: website-demo-${{ github.ref }}
+  cancel-in-progress: true
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify approved assets
+        run: |
+          test -f source/butik.html
+          test -f source/restoran.html
+          test -f source/perusahaan.html
+          test -f source/digital.html
+          for n in 1 2 3 4; do test -f render/assets/talent$n.mp4; done
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Install browser and encoder
+        run: |
+          npx playwright install --with-deps chromium
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          npx hyperframes browser ensure
+      - name: Capture original HTML and copy animation runtime
+        run: |
+          npm run capture
+          cp node_modules/gsap/dist/gsap.min.js render/assets/gsap.min.js
+      - name: Check composition
+        run: npm run check
+      - name: Review frames
+        working-directory: render
+        run: npx hyperframes snapshot --at 3,10,14,18,22,28
+      - name: Render final video
+        run: npm run render
+      - name: Upload render and review evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: website-demo-review
+          if-no-files-found: warn
+          retention-days: 7
+          path: |
+            output/*.mp4
+            render/assets/*review*.png
+            render/assets/capture-report.json
+            render/.hyperframes/artifacts/

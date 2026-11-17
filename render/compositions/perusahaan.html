@@ -1,0 +1,18 @@
+<template><style>
+#root{position:absolute;inset:0;background:#0d1822;color:#f5f1e8;font-family:Inter,sans-serif;overflow:hidden}
+.phone{position:absolute;left:80px;top:170px;width:560px;height:996px;border:9px solid #263847;border-radius:32px;overflow:hidden;background:#fff}
+.screen{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.title{position:absolute;left:50px;top:75px;width:620px;margin:0;font-size:35px;font-weight:700}
+.note{position:absolute;left:240px;top:1010px;width:400px;padding:20px;background:#0d1822;color:#f5f1e8;font-size:23px}
+.label{font-size:15px;color:#d8bd85;margin-top:12px}
+</style><div id="root" data-composition-id="perusahaan" data-width="720" data-height="1280">
+<h2 class="title" id="perusahaan-title">Profil Perusahaan</h2>
+<div class="phone" id="perusahaan-device" data-layout-allow-overlap="true"><video id="perusahaan-screen" class="clip screen" data-start="0" data-duration="4" data-track-index="0" src="assets/perusahaan.mp4" muted playsinline></video></div>
+<div class="note" id="perusahaan-note" data-layout-allow-overlap="true">Layanan yang mudah dipahami.<div class="label">Contoh desain • Simulasi</div></div>
+</div><script>
+const tl=gsap.timeline({paused:true});
+tl.fromTo('#perusahaan-device',{x:64,opacity:0},{x:0,opacity:1,duration:.22,ease:'power2.out'},0);
+tl.fromTo('#perusahaan-title',{y:16,opacity:0},{y:0,opacity:1,duration:.24,ease:'power2.out'},.08);
+tl.fromTo('#perusahaan-note',{x:18,opacity:0},{x:0,opacity:1,duration:.25,ease:'power2.out'},.35);
+window.__timelines=window.__timelines||{};window.__timelines['perusahaan']=tl;
+</script></template>

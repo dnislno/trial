@@ -1,0 +1,10 @@
+node_modules/
+output/
+render/.hyperframes/
+render/assets/*-review-*.png
+render/assets/capture-report.json
+render/assets/gsap.min.js
+render/assets/butik.mp4
+render/assets/restoran.mp4
+render/assets/perusahaan.mp4
+render/assets/digital.mp4

@@ -1,0 +1,1 @@
+{"name":"merpati-four-websites-motion","private":true,"type":"module","scripts":{"capture":"node scripts/capture.mjs","check":"hyperframes check render --json","render":"hyperframes render render --quality delivery --workers 2 --fps 24 --output output/VIDEO_2_FOUR_WEBSITES_720p.mp4"},"dependencies":{"playwright":"1.65.1","hyperframes":"0.9.58","gsap":"3.15.0"}}

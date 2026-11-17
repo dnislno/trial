@@ -1,0 +1,20 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><script src="assets/gsap.min.js"></script><style>
+*{box-sizing:border-box}html,body{margin:0;width:720px;height:1280px;overflow:hidden;background:#0d1822;font-family:Inter,sans-serif}#root{position:relative;width:720px;height:1280px}.face{position:absolute;inset:0;width:720px;height:1280px;object-fit:cover;z-index:1}.pip{position:absolute!important;left:32px!important;top:840px!important;width:172px!important;height:306px!important;object-fit:cover;border:3px solid #d8bd85;border-radius:20px;z-index:10}.card{position:absolute;left:54px;top:830px;width:612px;padding:24px 30px;background:#0d1822;color:#f5f1e8;text-align:center;z-index:20}.card h1{font-size:42px;line-height:1.15;margin:0}.gold{color:#d8bd85}.price{font-size:68px;font-weight:700}.cta{background:#237647;padding:16px;margin-top:16px;font-size:34px;font-weight:700}.small{font-size:18px;margin-top:14px}.brand{position:absolute;top:100px;left:230px;width:260px;text-align:center;background:#0d1822;color:#fff;font-size:18px;padding:12px;z-index:30}
+</style></head><body><div id="root" data-composition-id="main" data-start="0" data-duration="32" data-width="720" data-height="1280" data-fps="24">
+<video id="hook" class="clip face" data-start="0" data-duration="8" data-track-index="0" src="assets/talent1.mp4" data-has-audio="true" playsinline></video>
+<div id="butik" class="clip" data-composition-id="butik" data-composition-src="compositions/butik.html" data-start="8" data-duration="4" data-width="720" data-height="1280" data-track-index="1" data-track-kind="graphics"></div>
+<div id="restoran" class="clip" data-composition-id="restoran" data-composition-src="compositions/restoran.html" data-start="12" data-duration="4" data-width="720" data-height="1280" data-track-index="1" data-track-kind="graphics"></div>
+<div id="perusahaan" class="clip" data-composition-id="perusahaan" data-composition-src="compositions/perusahaan.html" data-start="16" data-duration="4" data-width="720" data-height="1280" data-track-index="1" data-track-kind="graphics"></div>
+<div id="digital" class="clip" data-composition-id="digital" data-composition-src="compositions/digital.html" data-start="20" data-duration="4" data-width="720" data-height="1280" data-track-index="1" data-track-kind="graphics"></div>
+<video id="pip2" class="clip pip" data-start="8" data-duration="8" data-track-index="2" src="assets/talent2.mp4" data-has-audio="true" playsinline data-layout-allow-overlap="true"></video>
+<video id="pip3" class="clip pip" data-start="16" data-duration="8" data-track-index="2" src="assets/talent3.mp4" data-has-audio="true" playsinline data-layout-allow-overlap="true"></video>
+<video id="closing" class="clip face" data-start="24" data-duration="8" data-track-index="0" src="assets/talent4.mp4" data-has-audio="true" playsinline></video>
+<div id="hook-title" class="clip" data-start="0" data-duration="8" data-track-index="3" data-track-kind="graphics"><div class="card" id="hook-card"><h1>Usahanya naik kelas.<br><span class="gold">Online-nya?</span></h1></div></div>
+<div id="closing-title" class="clip" data-start="24" data-duration="8" data-track-index="3" data-track-kind="graphics"><div class="card" id="closing-card"><div class="small">WEBSITE BISNIS • BERBASIS TEMPLATE</div><div class="price gold">Rp100.000</div><div class="cta">WhatsApp • WEBSITE</div><div class="small">Domain, hosting & penyesuaian<br>dibahas sebelum mulai.</div></div></div>
+<div id="brand" class="clip" data-start="0" data-duration="32" data-track-index="4" data-track-kind="graphics"><div class="brand">MERPATI MEDIA</div></div>
+</div><script>
+const tl=gsap.timeline({paused:true});
+tl.fromTo('#hook-card',{y:30,opacity:0},{y:0,opacity:1,duration:.3,ease:'power2.out'},.12);
+tl.fromTo('#closing-card',{y:30,opacity:0},{y:0,opacity:1,duration:.3,ease:'power2.out'},24.1);
+window.__timelines=window.__timelines||{};window.__timelines.main=tl;
+</script></body></html>
